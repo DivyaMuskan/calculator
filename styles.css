@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+:root {
+    --bg-color: linear-gradient(45deg, #2c3e50, #3498db);
+    --container-bg: rgba(255, 255, 255, 0.1);
+    --calculator-bg: #fff;
+    --display-bg: #f8f9fa;
+    --button-bg: #f8f9fa;
+    --button-hover: #e9ecef;
+    --operator-bg: #e9ecef;
+    --equals-bg: #3498db;
+    --equals-hover: #2980b9;
+    --text-color: #2c3e50;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: linear-gradient(45deg, #1a1a1a, #2c3e50);
+    --container-bg: rgba(0, 0, 0, 0.2);
+    --calculator-bg: #2c3e50;
+    --display-bg: #34495e;
+    --button-bg: #34495e;
+    --button-hover: #2c3e50;
+    --operator-bg: #2c3e50;
+    --equals-bg: #3498db;
+    --equals-hover: #2980b9;
+    --text-color: #ecf0f1;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color);
+    transition: background 0.3s ease;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+#darkModeToggle {
+    background: var(--calculator-bg);
+    color: var(--text-color);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+#darkModeToggle:hover {
+    transform: scale(1.1);
+}
+
+.container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--container-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.calculator {
+    background: var(--calculator-bg);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.display {
+    margin-bottom: 1rem;
+}
+
+#display {
+    width: 100%;
+    height: 60px;
+    border: none;
+    background: var(--display-bg);
+    border-radius: 10px;
+    text-align: right;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+button {
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: var(--button-bg);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.operator {
+    background: var(--operator-bg);
+    color: var(--text-color);
+}
+
+.equals {
+    background: var(--equals-bg);
+    color: white;
+    grid-column: span 2;
+}
+
+.equals:hover {
+    background: var(--equals-hover);
+}
+
+.currency-converter {
+    background: var(--calculator-bg);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    min-width: 300px;
+    transition: all 0.3s ease;
+}
+
+.currency-converter h2 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.converter-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.input-group input,
+.input-group select {
+    padding: 0.8rem;
+    border: 1px solid var(--button-hover);
+    border-radius: 10px;
+    font-size: 1rem;
+    background: var(--display-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.input-group input {
+    flex: 2;
+}
+
+.input-group select {
+    flex: 1;
+    cursor: pointer;
+}
+
+.currency-converter button {
+    width: 100%;
+    background: var(--equals-bg);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.currency-converter button:hover {
+    background: var(--equals-hover);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .currency-converter {
+        min-width: auto;
+    }
+} 
